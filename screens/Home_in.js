@@ -18,7 +18,7 @@ const ImageScreen = () => {
 
 
   const handleProfileClick = () => {
-    navigation.navigate('Product'); // Перехід на екран профілю
+    navigation.navigate('Image'); // Перехід на екран профілю
   };
 
   const handleAllPress = () => {
@@ -58,7 +58,7 @@ const ImageScreen = () => {
       <ScrollView style={styles.content}>
         {/* Верхня частина екрана */}
         <View style={styles.header}>
-          <TouchableOpacity style={styles.userSection} onPress={handleProfileClick}>
+          <TouchableOpacity style={styles.userSection} onPress={() => navigation.navigate('Product')}>
             <Image source={require('../assets/2025-04-11 20.17.05.jpg')} style={styles.userPhoto} />
             <View style={styles.userInfo}>
               <Text style={styles.helloText}>Helo, Nata </Text>
@@ -84,6 +84,7 @@ const ImageScreen = () => {
             style={styles.searchText}
             placeholder="Пошук"
             value={searchText}
+            onPress={() => navigation.navigate('Search')}
             onChangeText={setSearchText}
             onSubmitEditing={() => navigation.navigate('SearchResults', { query: searchText })} // Перехід після натискання Enter
           />
@@ -203,7 +204,7 @@ const ImageScreen = () => {
 
       {/* Навігаційна панель */}
       <View style={styles.navigationBar}>
-        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Home')}>
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Image')}>
           <Image source={require('../assets/Bold/Essentional, UI/Vector.png')} style={styles.navIcon} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Discover')}>
@@ -215,7 +216,7 @@ const ImageScreen = () => {
         <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Notifications')}>
           <Image source={require('../assets/vuesax/linear/vuesax/linear/Vector.png')} style={styles.navIcon} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem} onPress={'Product'}>
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Product')}>
           <Image source={require('../assets/Outline/Users/Vector.png')} style={styles.navIcon} />
         </TouchableOpacity>
       </View>

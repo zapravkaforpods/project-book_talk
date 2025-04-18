@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native'; // Імпортуємо хук
+import { Feather } from '@expo/vector-icons'; // Або інша бібліотека іконок
 
 const ProductScreen = () => {
   const navigation = useNavigation(); // Отримуємо об'єкт navigation
@@ -18,7 +19,7 @@ const ProductScreen = () => {
       {/* Верхня частина з кнопками навігації та заголовком */}
       <View style={styles.header}>
         <TouchableOpacity style={styles.backButton} onPress={handleBackPress}>
-          <Text style={styles.backButtonText}>←</Text>
+         <Feather name="arrow-left" size={24} color="black" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Мій профіль</Text>
          <TouchableOpacity style={styles.backButton}>
@@ -123,17 +124,14 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   backButton: {
-    marginRight: 10,
     width: 48,
     height: 48,
     backgroundColor: '#E0DAC2',
-    borderRadius: 555,
-},
-backButtonText: {
-    fontSize: 24,
-    top: 4,
-    left: 12,
-},
+    borderRadius: 555, // Для створення круглої кнопки
+    justifyContent: 'center', // Центрування по вертикалі
+    alignItems: 'center',    // Центрування по горизонталі
+  },
+
   headerTitle: {
     fontSize: 20,
     fontWeight: 'bold',
